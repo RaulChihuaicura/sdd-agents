@@ -452,4 +452,4 @@ El método combina ideas de dos fuentes públicas. Los agentes, plantillas y tex
 
 ## Licencia
 
-Sin licencia definida todavía. Hasta que se agregue una, todos los derechos quedan reservados por defecto.
+[MIT](LICENSE). Puedes usar, copiar, modificar y redistribuir el kit, incluso en proyectos comerciales, conservando el aviso de copyright.
