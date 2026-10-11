@@ -1,32 +1,32 @@
 # Casos de práctica
 
-Para quien no trae una herramienta propia. Elige uno, crea una carpeta con su nombre, copia ahí el kit y dile al `lider` la frase de arranque. Los tres son chicos a propósito: alcanzan para terminar la sesión.
+Para quien no tiene una herramienta propia. Elige uno, crea una carpeta con su nombre, copia ahí el contenido de `kit/` y dile al `lider` la frase de arranque. Los tres son chicos a propósito: alcanzan para recorrer el ciclo completo.
 
 Todos los datos son ficticios.
 
-## 1 · Checklist de inicio de turno
+## 1 · Lista de tareas del equipo
 
-- **Quién la usa:** el supervisor de turno, al llegar a la línea.
-- **Qué resuelve:** hoy la revisión de inicio (limpieza, materiales, seguridad) se hace de memoria o en papel, y nadie sabe qué quedó pendiente.
-- **Un caso límite:** ¿qué pasa si el supervisor marca todo menos un punto? Y si ese punto es de seguridad, ¿se puede cerrar el checklist igual?
+- **Quién la usa:** un equipo pequeño, desde el computador.
+- **Qué resuelve:** las tareas viven en correos y chats, y nadie sabe qué está pendiente ni de quién es.
+- **Un caso límite:** ¿qué pasa si se crea una tarea sin responsable? ¿Y si la fecha límite ya pasó?
 
-Frase de arranque: "Quiero un checklist de inicio de turno donde se marcan los puntos de revisión y se ve cuáles quedaron pendientes. Lo va a usar el supervisor de turno."
+Frase de arranque: "Quiero una herramienta donde se anotan tareas con responsable y fecha límite, y se ve cuáles están pendientes. La va a usar un equipo pequeño."
 
-## 2 · Solicitud de horas extra
+## 2 · Solicitud de permisos
 
-- **Quién la usa:** el supervisor, que pide horas extra para su equipo, y el jefe de planta, que las aprueba.
-- **Qué resuelve:** las solicitudes llegan por correo o por mensaje y no hay un total de horas pedidas por semana.
-- **Un caso límite:** ¿qué pasa si piden más horas de las que caben en un día, o horas en un día que ya pasó?
+- **Quién la usa:** las personas del equipo, que piden días, y su jefatura, que los revisa.
+- **Qué resuelve:** las solicitudes llegan por correo o por mensaje, y no hay un total de días pedidos por persona.
+- **Un caso límite:** ¿qué pasa si la fecha de término es anterior a la de inicio? ¿Y si dos solicitudes de una misma persona se cruzan?
 
-Frase de arranque: "Quiero una herramienta para registrar solicitudes de horas extra con nombre, fecha y horas, y ver el total por semana. La va a usar el supervisor."
+Frase de arranque: "Quiero una herramienta para registrar solicitudes de permiso con nombre, fecha de inicio y de término, y ver el total de días por persona. La va a usar una jefatura."
 
-## 3 · Cumplimiento del plan semanal
+## 3 · Control de gastos del mes
 
-- **Quién la usa:** el analista de planificación, al cierre de cada día.
-- **Qué resuelve:** el plan de la semana y lo producido se comparan a mano en una planilla, y el porcentaje de cumplimiento se calcula al final.
-- **Un caso límite:** ¿qué pasa si lo producido supera lo planificado? ¿El cumplimiento pasa de 100% o se corta en 100%?
+- **Quién la usa:** una persona, para llevar el control de su presupuesto.
+- **Qué resuelve:** los gastos se suman a mano al final del mes y no se sabe en qué categoría se fue más dinero.
+- **Un caso límite:** ¿qué pasa con un monto negativo o con decimales? ¿Y con un gasto sin categoría?
 
-Frase de arranque: "Quiero una herramienta donde se ingresa lo planificado y lo producido de cada día, y se ve el porcentaje de cumplimiento de la semana. La va a usar el analista de planificación."
+Frase de arranque: "Quiero una herramienta donde se anotan gastos con monto y categoría, y se ve el total por categoría. La va a usar una sola persona."
 
 ---
 

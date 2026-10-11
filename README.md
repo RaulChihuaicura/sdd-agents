@@ -93,23 +93,23 @@ Sin Playwright el kit sigue funcionando, pero el `revisor` solo puede revisar la
 
 ## Inicio rápido
 
-1. **Clona este repositorio** y crea una carpeta para tu herramienta, por ejemplo `registro-detenciones`.
+1. **Clona este repositorio** y crea una carpeta para tu herramienta, por ejemplo `reserva-salas`.
 
    ```bash
    git clone https://github.com/RaulChihuaicura/sdd-agents.git
-   mkdir registro-detenciones
+   mkdir reserva-salas
    ```
 
 2. **Copia el contenido de `kit/` dentro de tu carpeta**, incluida la carpeta oculta `.claude/`.
 
    ```bash
    # macOS y Linux
-   cp -r sdd-agents/kit/. registro-detenciones/
+   cp -r sdd-agents/kit/. reserva-salas/
    ```
 
    ```powershell
    # Windows (PowerShell)
-   Copy-Item -Path sdd-agents\kit\* -Destination registro-detenciones -Recurse -Force
+   Copy-Item -Path sdd-agents\kit\* -Destination reserva-salas -Recurse -Force
    ```
 
 3. **Edita `CLAUDE.md`** en tu carpeta: cambia el título y la frase de abajo por lo que hace tu herramienta.
@@ -157,18 +157,18 @@ sdd-agents/
 Esta es la convención de carpetas que el equipo genera y mantiene en tu carpeta de trabajo. Es la parte más importante: quien llegue mañana, persona o agente, sabe qué hace la herramienta, por qué es así y cómo se comprueba.
 
 ```text
-registro-detenciones/
+reserva-salas/
 ├── CLAUDE.md                      ← constitución + cómo se trabaja aquí
 ├── .claude/
 │   └── agents/                    ← los seis agentes
 ├── specs/                         ← la historia: una carpeta por cambio
-│   ├── 001-registro/
+│   ├── 001-reserva/
 │   │   ├── spec.md                ← el QUÉ y el POR QUÉ, con su línea Estado:
 │   │   ├── plan.md                ← el CÓMO, con tareas y "Hecho cuando:"
 │   │   ├── revision-spec.md       ← los huecos que encontró el revisor
 │   │   ├── progreso.md            ← lo que hizo el implementador
 │   │   └── validacion.md          ← la tabla de pruebas en el navegador
-│   └── 002-totales-en-rojo/       ← un cambio posterior = una spec nueva
+│   └── 002-reservas-largas/       ← un cambio posterior = una spec nueva
 │       ├── spec.md
 │       └── plan.md
 ├── docs/                          ← cómo funciona HOY (vivo)
@@ -306,31 +306,31 @@ Las puertas donde el agente se detiene y espera:
 
 Los mensajes del usuario van en negrita; lo demás lo hace el equipo.
 
-1. **"Quiero un registro de detenciones de turno donde se anota máquina, motivo y minutos, y se ve el total por máquina. Lo va a usar el supervisor de turno."** El líder lanza a `constitucion`, que propone cinco principios y se detiene.
+1. **"Quiero una herramienta para reservar salas de reuniones, donde se anota la sala, el nombre y el horario, y se ve la agenda del día. La va a usar el equipo de la oficina."** El líder lanza a `constitucion`, que propone cinco principios y se detiene.
 2. **"Aprobada."** Se escribe el `CLAUDE.md` con los principios y las cuatro reglas.
-3. **Entrevista.** El líder pregunta de a una (máquinas, minutos, motivo, si guarda datos, si se edita) y tú respondes. Lo que quede fuera se anota en "Fuera de alcance".
-4. **Spec y revisión.** `redactor-spec` escribe `specs/001-registro/spec.md` con `Estado: borrador`; el `revisor` busca huecos; el líder te muestra como máximo 4 decisiones.
+3. **Entrevista.** El líder pregunta de a una (qué salas hay, si se puede reservar en el pasado, cuánto dura como mínimo una reserva, si se guardan los datos, si se pueden cancelar) y tú respondes. Lo que quede fuera se anota en "Fuera de alcance".
+4. **Spec y revisión.** `redactor-spec` escribe `specs/001-reserva/spec.md` con `Estado: borrador`; el `revisor` busca huecos; el líder te muestra como máximo 4 decisiones.
 5. **"Aprobada la spec y el plan. Construye la primera tarea."** El estado pasa a `aprobada`; el `implementador` hace una tarea y se detiene. Tú compruebas la página.
 6. **"La tarea 1 funciona."** Se marca la tarea. Se repite hasta completar el plan, y el estado pasa a `implementada`.
-7. **"Valida la herramienta."** El `revisor` prueba cada criterio en el navegador. Si encuentra un requisito que falla, **"Corrígelo."**; no hace falta spec nueva, porque la spec ya lo exigía.
-8. **"Nuevo requisito: si el total de una máquina pasa de 60 minutos en el turno, quiero verlo destacado en rojo."** El líder revisa que no choque con `docs/` ni con un "fuera de alcance" anterior y crea `specs/002-...` con el número de requisito siguiente. La spec 001 no se toca.
+7. **"Valida la herramienta."** El `revisor` prueba cada criterio en el navegador. Si encuentra un requisito que falla (por ejemplo, deja reservar dos veces la misma sala a la misma hora), **"Corrígelo."**; no hace falta spec nueva, porque la spec ya lo exigía.
+8. **"Nuevo requisito: si una reserva dura más de 2 horas, quiero verla destacada en rojo en la agenda."** El líder revisa que no choque con `docs/` ni con un "fuera de alcance" anterior y crea `specs/002-...` con el número de requisito siguiente. La spec 001 no se toca.
 9. **"Valida y actualiza la documentación."** Se revalida y el `documentador` deja `docs/` al día.
 
-Un extracto, abreviado, de la spec que produjo un ensayo de este recorrido:
+Un ejemplo, abreviado, de cómo queda la spec de este recorrido:
 
 ```markdown
-# Registro de detenciones de turno
+# Reserva de salas
 Estado: borrador
 
 ## Requisitos
-- RF-1: EL SISTEMA ofrece para la máquina solo estas opciones: Inyectora 1, Inyectora 2, Acolchadora y Cerradora.
-- RF-3: SI el motivo está vacío o solo tiene espacios, ENTONCES EL SISTEMA no registra la detención y muestra un mensaje que indica que el motivo es obligatorio.
+- RF-1: EL SISTEMA ofrece para la sala solo estas opciones: Sala A, Sala B y Sala C.
+- RF-3: SI la hora de término es anterior o igual a la de inicio, ENTONCES EL SISTEMA no registra la reserva y muestra un mensaje que indica que el término debe ser posterior al inicio.
 
 ## Criterios de aceptación
 | RF | Se comprueba así |
 |----|------------------|
-| RF-1 | Se abre la lista de máquinas: aparecen exactamente las cuatro y no se puede escribir otra. |
-| RF-3 | Se deja el motivo vacío, y luego solo con espacios, con 10 minutos: se ve el mensaje y la lista no cambia. |
+| RF-1 | Se abre la lista de salas: aparecen exactamente las tres y no se puede escribir otra. |
+| RF-3 | Se reserva con término igual al inicio, y luego con término anterior: se ve el mensaje y la agenda no cambia. |
 ```
 
 ---
@@ -372,8 +372,8 @@ flowchart LR
     Q -->|No| R["Es un requisito nuevo<br/>spec nueva con el número siguiente<br/>el líder revisa choques con docs/ y 'fuera de alcance'"] --> F["Aprobar, construir,<br/>validar y actualizar docs/"]
 ```
 
-- **"El RF-3 aceptaba -15 minutos"** es un bug: la spec ya decía que los minutos eran enteros mayores que 0.
-- **"Quiero el total en rojo sobre 60 minutos"** es un requisito nuevo: nace `specs/002-...`.
+- **"La página deja reservar con término anterior al inicio"** es un bug: la spec ya decía que el término debe ser posterior al inicio.
+- **"Quiero ver en rojo las reservas de más de 2 horas"** es un requisito nuevo: nace `specs/002-...`.
 
 Así cada cambio queda escrito, con su fecha y su motivo, en vez de perderse en una conversación.
 
